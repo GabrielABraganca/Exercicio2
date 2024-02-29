@@ -56,7 +56,7 @@ public class DAO {
     public boolean adicionarCamisa(CamisaTimeFutebol camisa) {
         boolean status = false;
         try {
-            String sql = "INSERT INTO camisas_time_futebol (modelo, cor, tamanho, fabricante) VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO principal (modelo, cor, tamanho, fabricante) VALUES (?, ?, ?, ?)";
 
             PreparedStatement statement = conexao.prepareStatement(sql);
             statement.setString(1, camisa.getModelo());
@@ -78,7 +78,7 @@ public class DAO {
     public boolean removerCamisa(int id) {
         boolean status = false;
         try {
-            String sql = "DELETE FROM camisas_time_futebol WHERE id = ?";
+            String sql = "DELETE FROM principal WHERE id = ?";
             PreparedStatement statement = conexao.prepareStatement(sql);
             statement.setInt(1, id);
 
@@ -96,7 +96,7 @@ public class DAO {
     public List<CamisaTimeFutebol> listarCamisas() {
         List<CamisaTimeFutebol> camisas = new ArrayList<>();
         try {
-            String sql = "SELECT * FROM camisas_time_futebol";
+            String sql = "SELECT * FROM principal";
             Statement statement = conexao.createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
 
